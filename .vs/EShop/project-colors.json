@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "5cb73154-ab92-4c20-b049-dd37168f47a4": {
+      "ProjectGuid": "5cb73154-ab92-4c20-b049-dd37168f47a4",
+      "DisplayName": "EShop",
+      "ColorIndex": 0
+    },
+    "f3b71971-43fe-4fd4-b37a-5b4cbba060a0": {
+      "ProjectGuid": "f3b71971-43fe-4fd4-b37a-5b4cbba060a0",
+      "DisplayName": "DataLayer",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

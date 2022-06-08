@@ -1,0 +1,12 @@
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\DataLayer.dll.config
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\DataLayer.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\DataLayer.pdb
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\EntityFramework.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\EntityFramework.xml
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\obj\Debug\DataLayer.csproj.AssemblyReference.cache
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\obj\Debug\DataLayer.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\obj\Debug\DataLayer.pdb
