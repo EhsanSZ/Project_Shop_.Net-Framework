@@ -22,11 +22,11 @@ namespace DataLayer
     }
 
 
-    [MetadataType(typeof(RolesMetaData))]
-    public partial class Roles
-    {
+    //[MetadataType(typeof(RolesMetaData))]
+    //public partial class Roles
+    //{
 
-    }
+    //}
 }
 
 

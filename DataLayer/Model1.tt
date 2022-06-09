@@ -315,6 +315,7 @@ public class CodeStringGenerator
     {
         return string.Format(
             CultureInfo.InvariantCulture,
+            "[MetadataType(typeof({2}MetaData))]"+Environment.NewLine+
             "{0} {1}partial class {2}{3}",
             Accessibility.ForType(entity),
             _code.SpaceAfter(_code.AbstractOption(entity)),
@@ -425,6 +426,7 @@ public class CodeStringGenerator
         return inHeader == string.IsNullOrEmpty(_code.VsNamespaceSuggestion())
             ? string.Format(
                 CultureInfo.InvariantCulture,
+                "using System.ComponentModel.DataAnnotations;"+Environment.NewLine+
                 "{0}using System;{1}" +
                 "{2}",
                 inHeader ? Environment.NewLine : "",
