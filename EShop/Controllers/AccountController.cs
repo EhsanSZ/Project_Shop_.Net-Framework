@@ -1,4 +1,6 @@
-﻿using System;
+﻿using DataLayer;
+using DataLayer.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,18 @@ namespace EShop.Controllers
 {
     public class AccountController : Controller
     {
-        // GET: Account
+        MyEShopEntities db = new MyEShopEntities();
+
         public ActionResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register (RegisterViewModel register)
+        {
+            return null;
         }
 
         public ActionResult Login()
