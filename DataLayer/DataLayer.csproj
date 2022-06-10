@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GenericRepository\GenericRepository.cs" />
+    <Compile Include="GenericRepository\IEntity.cs" />
     <Compile Include="MetaDataClasses\RolesMetaData.cs" />
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
