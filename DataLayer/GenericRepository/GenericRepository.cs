@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 
 namespace DataLayer.GenericRepository
 {
-    public class GenericRepository<TEntity> where TEntity : class , IEntity
+    //منصرف شدم از ادامه توسعه با این روش 
+    public class GenericRepository<TEntity> where TEntity : class, IEntity
     {
 
         private MyEShopEntities _context;
@@ -49,6 +50,31 @@ namespace DataLayer.GenericRepository
         {
             var query = GetAllIncluding(includeEntities);
             return query.Where(predicate).ToList();
+        }
+
+        public virtual IEnumerable<TEntity> GetByInclude_OrderBy(Expression<Func<TEntity, bool>> where = null, Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderby = null, string includes = "")
+        {
+            IQueryable<TEntity> query = _dbSet;
+
+            if (where != null)
+            {
+                query = query.Where(where);
+            }
+
+            if (orderby != null)
+            {
+                query = orderby(query);
+            }
+
+            if (includes != "")
+            {
+                foreach (string include in includes.Split(','))
+                {
+                    query = query.Include(include);
+                }
+            }
+
+            return query.ToList();
         }
 
         public void Insert(TEntity entity)
