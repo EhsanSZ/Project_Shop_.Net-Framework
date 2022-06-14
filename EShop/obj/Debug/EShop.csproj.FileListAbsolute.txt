@@ -85,3 +85,11 @@ D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\obj\Debug\EShop.csproj.CoreCompileInputs.
 D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\obj\Debug\EShop.csproj.CopyComplete
 D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\obj\Debug\EShop.dll
 D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\obj\Debug\EShop.pdb
+D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\bin\Ninject.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\bin\Ninject.Web.Common.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\bin\Ninject.Web.Common.WebHost.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\bin\Ninject.Web.Mvc.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\bin\Ninject.xml
+D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\bin\Ninject.Web.Common.xml
+D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\bin\Ninject.Web.Common.WebHost.xml
+D:\MyProje\ASP.Net\ShopMvc\EShop\EShop\bin\Ninject.Web.Mvc.xml
