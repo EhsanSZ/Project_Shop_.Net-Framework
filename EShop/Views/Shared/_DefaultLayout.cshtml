@@ -2,7 +2,7 @@
 <html class="no-js" dir="rtl" lang="fa-IR">
 	<head>
 		<meta charset="UTF-8">
-		<title> فروشگاه محصولات الکترونیکی </title>
+		<title> @ViewBag.Title </title>
 		<base href="" >
 		<meta name="googlebot" content="index,follow">
 		<meta name="robots" content="noodp,noydir">
@@ -25,7 +25,7 @@
                     <!-- Clientarea and Basket -->
                     <div class="clientarea">
                         <ul>
-                            <li><a href=""><i class="fa fa-user-plus"></i> <label>عضویت</label> </a></li>
+                            <li><a href="@Url.Action("Register","Account")"><i class="fa fa-user-plus"></i> <label>عضویت</label> </a></li>
                             <li><a href=""><i class="fa fa-user"></i> <label>ورود به سایت</label> </a></li>
                             <li><a href=""><i class="fa fa-shopping-bag"></i> سبد خرید <span>10</span></a></li>
                         </ul>

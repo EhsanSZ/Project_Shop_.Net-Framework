@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "فعال سازی حساب کاربری";
+}
+
+<h2>فعال سازی حساب کاربری</h2>
+
+<div class="alert alert-success">
+    <h2>@ViewBag.UserName عزیز</h2>
+    <p>حساب کاربری شما فعال شد از طریق این
+    @Html.RouteLink("لینک", new
+    {controller = "Account", action = "Login" }, null);
+    میتوانید وارد حساب کاربری خود شوید
+    </p>
+</div>
+

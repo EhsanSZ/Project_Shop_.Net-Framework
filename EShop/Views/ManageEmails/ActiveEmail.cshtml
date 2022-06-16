@@ -1,0 +1,14 @@
+﻿@using System.Configuration
+@model DataLayer.Users
+@{
+    ViewBag.Title = "فعال سازی حساب کاربری";
+}
+
+<div style="direction:rtl ; padding: 20px">
+    <h2>@Model.UserName عزیز</h2>
+    <p>با تشکر از ثبت نام شما در سایت ما , جهت فعال سازی حساب کاربری خود روی لینک زیر کلیک نمایید</p>
+    <p>
+        <a href="@ConfigurationManager.AppSettings["MyDomain"]/Account/ActiveUser/@Model.ActiveCode">لینک فعال سازی</a>
+    </p>
+</div>
+

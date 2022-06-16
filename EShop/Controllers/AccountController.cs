@@ -13,6 +13,7 @@ namespace EShop.Controllers
     public class AccountController : Controller
     {
         MyEShopEntities _db = new MyEShopEntities();
+
         public ActionResult Register()
         {
             return View();
@@ -24,7 +25,7 @@ namespace EShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                //in 2 ta if ro badan Ajaxi annjam bede
+                //Edit by Ajax (#Edit)
 
                 if (_db.Users.Any(u => u.Email == register.Email.Trim().ToLower()))
                 {
@@ -48,8 +49,16 @@ namespace EShop.Controllers
                     RoleID = 1,
                     UserName = register.UserName
                 };
+
                 _db.Users.Add(user);
                 _db.SaveChanges();
+
+                //Send Active Email
+                string body = PartialToStringClass.RenderPartialView("ManageEmails", "ActiveEmail", user);
+                SendEmail.Send(user.Email, "ایمیل فعال سازی", body);
+                //End Send Active Email
+                //Add Recaptchar Later (#Edit)
+
                 return View("SuccessRegister", user);
             }
             else
@@ -59,6 +68,11 @@ namespace EShop.Controllers
         }
 
         public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult ActiveUser()
         {
             return View();
         }
