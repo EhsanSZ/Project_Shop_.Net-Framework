@@ -72,9 +72,50 @@ namespace EShop.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(LoginViewModel login)
+        {
+            if (ModelState.IsValid)
+            {
+
+                string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(login.Password, "MD5");
+                string email = login.Email.Trim().ToLower();
+
+                var user = _db.Users.SingleOrDefault(u=> u.Email == email && u.Password== hashPassword);
+
+                if (user != null)
+                {
+                    if (user.IsActive)
+                    {
+                        FormsAuthentication.SetAuthCookie(user.UserName, login.RememberMe);
+                        return Redirect("/");
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Email", "حسابی کاربری شما فعال نمیباشد");
+                        return View(login);
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "حسابی با این مشخصات یافت نشد");
+                    return View(login);
+                }
+            }
+            return View(login);
+        }
+
+        public ActionResult LogOff()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("/");
+        }
+
         public ActionResult ActiveUser()
         {
             return View();
         }
+
     }
 }

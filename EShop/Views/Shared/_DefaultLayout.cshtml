@@ -25,8 +25,7 @@
                     <!-- Clientarea and Basket -->
                     <div class="clientarea">
                         <ul>
-                            <li><a href="@Url.Action("Register","Account")"><i class="fa fa-user-plus"></i> <label>عضویت</label> </a></li>
-                            <li><a href=""><i class="fa fa-user"></i> <label>ورود به سایت</label> </a></li>
+                            @Html.Partial("_LoggedInUser")
                             <li><a href=""><i class="fa fa-shopping-bag"></i> سبد خرید <span>10</span></a></li>
                         </ul>
                     </div>

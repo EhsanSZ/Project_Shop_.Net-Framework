@@ -15,18 +15,34 @@ namespace DataLayer.ViewModels
 
         [Display(Name = "ایمیل")]
         [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
-        [EmailAddress(ErrorMessage ="ایمیل وارد شده معتبر نمیباشد")]
+        [EmailAddress(ErrorMessage = "ایمیل وارد شده معتبر نمیباشد")]
         public string Email { get; set; }
 
         [Display(Name = "کلمه عبور")]
-        [Required(ErrorMessage ="لطفا {0} را وارد کنید")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
         [Display(Name = "تکرار کلمه عبور")]
-        [Required(ErrorMessage ="لطفا {0} را وارد کنید")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
         [DataType(DataType.Password)]
-        [Compare("Password",ErrorMessage ="کلمه های عبور مغایرت دارند")]
+        [Compare("Password", ErrorMessage = "کلمه های عبور مغایرت دارند")]
         public string RePassword { get; set; }
+    }
+
+    public class LoginViewModel
+    {
+        [Display(Name = "ایمیل")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [EmailAddress(ErrorMessage = "ایمیل وارد شده صحیح نمیباشد")]
+        public string Email { get; set; }
+
+        [Display(Name = "کلمه عبور")]
+        [Required(ErrorMessage = "لطفا {0} را وارد کنید")]
+        [DataType(DataType.Password)]
+        public string Password { get; set; }
+
+        [Display(Name = "مرا به خاطر بسپار")]
+        public bool RememberMe { get; set; }
     }
 }
