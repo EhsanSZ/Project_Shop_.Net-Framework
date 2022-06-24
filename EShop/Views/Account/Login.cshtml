@@ -11,6 +11,12 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
+        @if (User.Identity.IsAuthenticated && Request.QueryString["ReturnUrl"] != null)
+                {
+                    <div class="alert alert-danger">
+                        <p>شما مجوز ورود به بخش درخواست شده را ندارید</p>
+                    </div>
+                }
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">

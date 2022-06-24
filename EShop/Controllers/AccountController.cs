@@ -19,6 +19,7 @@ namespace EShop.Controllers
             return View();
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Register(RegisterViewModel register)
@@ -67,14 +68,16 @@ namespace EShop.Controllers
             }
         }
 
+
         public ActionResult Login()
         {
             return View();
         }
 
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel login)
+        public ActionResult Login(LoginViewModel login , string ReturnUrl ="/")
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +92,7 @@ namespace EShop.Controllers
                     if (user.IsActive)
                     {
                         FormsAuthentication.SetAuthCookie(user.UserName, login.RememberMe);
-                        return Redirect("/");
+                        return Redirect(ReturnUrl);
                     }
                     else
                     {
