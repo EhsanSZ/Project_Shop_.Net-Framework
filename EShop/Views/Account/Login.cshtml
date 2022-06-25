@@ -17,6 +17,13 @@
                         <p>شما مجوز ورود به بخش درخواست شده را ندارید</p>
                     </div>
                 }
+        @if (Request.QueryString["recovery"]!= null)
+                {
+                    <div class="alert alert-success">
+                        <p>کلمه عبور شما با موفقیت تغییر کرد</p>
+                        <p>میتوانید وارد سایت شوید</p>
+                    </div>
+                }
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -42,6 +49,13 @@
                     @Html.EditorFor(model => model.RememberMe)
                     @Html.ValidationMessageFor(model => model.RememberMe, "", new { @class = "text-danger" })
                 </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.RouteLink("کلمه عبور خود را فراموش کردم", new
+            { controller = "Account", action = "ForgotPassword" }, null);
             </div>
         </div>
 

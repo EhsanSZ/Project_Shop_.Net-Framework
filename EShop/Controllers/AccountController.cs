@@ -77,7 +77,7 @@ namespace EShop.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginViewModel login , string ReturnUrl ="/")
+        public ActionResult Login(LoginViewModel login, string ReturnUrl = "/")
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace EShop.Controllers
                 string hashPassword = FormsAuthentication.HashPasswordForStoringInConfigFile(login.Password, "MD5");
                 string email = login.Email.Trim().ToLower();
 
-                var user = _db.Users.SingleOrDefault(u=> u.Email == email && u.Password== hashPassword);
+                var user = _db.Users.SingleOrDefault(u => u.Email == email && u.Password == hashPassword);
 
                 if (user != null)
                 {
@@ -97,13 +97,11 @@ namespace EShop.Controllers
                     else
                     {
                         ModelState.AddModelError("Email", "حسابی کاربری شما فعال نمیباشد");
-                        return View(login);
                     }
                 }
                 else
                 {
                     ModelState.AddModelError("Email", "حسابی با این مشخصات یافت نشد");
-                    return View(login);
                 }
             }
             return View(login);
@@ -119,6 +117,68 @@ namespace EShop.Controllers
         {
             return View();
         }
+
+        public ActionResult ForgotPassword()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ForgotPassword(ForgotPasswordViewModel forgot)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _db.Users.SingleOrDefault(u => u.Email == forgot.Email.Trim().ToLower());
+
+                if (user != null)
+                {
+                    if (user.IsActive)
+                    {
+                        string bodyEmail = PartialToStringClass.RenderPartialView("ManageEmails", "RecoveryPassword(", user);
+                        SendEmail.Send(user.Email, "بازیابی کلمه عبور", bodyEmail);
+                        return View("SuccessForgotPassword", user);
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("Email", "حساب کاربری شما فعال نیست");
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("Email", "کاربری یافت نشد");
+                }
+            }
+            return View(forgot);
+        }
+
+        public ActionResult RecoveryPassword(string id)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult RecoveryPassword(string id , RecoveryPasswordViewModel recovery)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = _db.Users.SingleOrDefault(u => u.ActiveCode == id);
+                if (user != null)
+                {
+                    user.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(recovery.Password, "MD5");
+                    user.ActiveCode = Guid.NewGuid().ToString();
+                    _db.SaveChanges();
+                    return Redirect("Account/Login?recovery=true");
+                }
+                else
+                {
+                    return HttpNotFound();
+                }
+            }
+            return View();
+        }
+
 
     }
 }
