@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 
-namespace EShop.Utilities
+namespace EShop
 {
     public class MyEShopRoleProvider : RoleProvider
     {

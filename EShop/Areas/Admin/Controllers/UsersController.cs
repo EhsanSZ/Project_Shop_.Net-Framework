@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using DataLayer;
+using System.Web.Security;
 
 namespace EShop.Areas.Admin.Controllers
 {
@@ -22,21 +23,6 @@ namespace EShop.Areas.Admin.Controllers
         }
 
 
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Users users = db.Users.Find(id);
-            if (users == null)
-            {
-                return HttpNotFound();
-            }
-            return View(users);
-        }
-
-
         public ActionResult Create()
         {
             ViewBag.RoleID = new SelectList(db.Roles, "RoleID", "RoleTitle");
@@ -49,6 +35,9 @@ namespace EShop.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
+                users.RegisterDate = DateTime.Now;
+                users.ActiveCode = Guid.NewGuid().ToString();
+                users.Password = FormsAuthentication.HashPasswordForStoringInConfigFile(users.Password, "MD5");
                 db.Users.Add(users);
                 db.SaveChanges();
                 return RedirectToAction("Index");
