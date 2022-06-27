@@ -1,5 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="MyEShopModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ProductGroups">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="GroupTitle" Type="nvarchar" MaxLength="400" Nullable="false" />
+    <Property Name="ParentID" Type="int" />
+  </EntityType>
   <EntityType Name="Roles">
     <Key>
       <PropertyRef Name="RoleID" />
@@ -21,6 +29,18 @@
     <Property Name="IsActive" Type="bit" Nullable="false" />
     <Property Name="RegisterDate" Type="datetime" Nullable="false" />
   </EntityType>
+  <Association Name="FK_ProductGroups">
+    <End Role="ProductGroups" Type="Self.ProductGroups" Multiplicity="0..1" />
+    <End Role="ProductGroups1" Type="Self.ProductGroups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductGroups">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="ProductGroups1">
+        <PropertyRef Name="ParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Users_Roles">
     <End Role="Roles" Type="Self.Roles" Multiplicity="1" />
     <End Role="Users" Type="Self.Users" Multiplicity="*" />
@@ -34,8 +54,13 @@
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="MyEShopModelStoreContainer">
+    <EntitySet Name="ProductGroups" EntityType="Self.ProductGroups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Roles" EntityType="Self.Roles" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ProductGroups" Association="Self.FK_ProductGroups">
+      <End Role="ProductGroups" EntitySet="ProductGroups" />
+      <End Role="ProductGroups1" EntitySet="ProductGroups" />
+    </AssociationSet>
     <AssociationSet Name="FK_Users_Roles" Association="Self.FK_Users_Roles">
       <End Role="Roles" EntitySet="Roles" />
       <End Role="Users" EntitySet="Users" />

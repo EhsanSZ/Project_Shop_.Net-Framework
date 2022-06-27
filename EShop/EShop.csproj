@@ -194,6 +194,11 @@
     <Content Include="Areas\Admin\Views\Users\Index.cshtml" />
     <Content Include="Areas\UserPanel\Views\web.config" />
     <Content Include="Areas\UserPanel\Views\Account\ChangePassword.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroups\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroups\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroups\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroups\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductGroups\Index.cshtml" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery-3.6.0.min.js" />
@@ -281,12 +286,14 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductGroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Areas\UserPanel\Controllers\AccountController.cs" />
     <Compile Include="Areas\UserPanel\UserPanelAreaRegistration.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageEmailsController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -330,6 +337,7 @@
     <Content Include="Views\ManageEmails\RecoveryPassword.cshtml" />
     <Content Include="Views\Account\SuccessForgotPassword.cshtml" />
     <Content Include="Views\Account\RecoveryPassword.cshtml" />
+    <Content Include="Views\Product\ShowGroups.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

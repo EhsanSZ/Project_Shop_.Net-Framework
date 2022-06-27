@@ -16,6 +16,11 @@
       <End Role="Roles" EntitySet="Roles" />
       <End Role="Users" EntitySet="Users" />
     </AssociationSet>
+    <EntitySet Name="ProductGroups" EntityType="MyEShopModel.ProductGroups" />
+    <AssociationSet Name="FK_ProductGroups" Association="MyEShopModel.FK_ProductGroups">
+      <End Role="ProductGroups" EntitySet="ProductGroups" />
+      <End Role="ProductGroups1" EntitySet="ProductGroups" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Users">
     <Key>
@@ -40,6 +45,28 @@
       </Principal>
       <Dependent Role="Users">
         <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProductGroups">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <Property Name="GroupTitle" Type="String" Nullable="false" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="ParentID" Type="Int32" />
+    <NavigationProperty Name="ProductGroups1" Relationship="MyEShopModel.FK_ProductGroups" FromRole="ProductGroups" ToRole="ProductGroups1" />
+    <NavigationProperty Name="ProductGroups2" Relationship="MyEShopModel.FK_ProductGroups" FromRole="ProductGroups1" ToRole="ProductGroups" />
+  </EntityType>
+  <Association Name="FK_ProductGroups">
+    <End Type="MyEShopModel.ProductGroups" Role="ProductGroups" Multiplicity="0..1" />
+    <End Type="MyEShopModel.ProductGroups" Role="ProductGroups1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductGroups">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="ProductGroups1">
+        <PropertyRef Name="ParentID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
