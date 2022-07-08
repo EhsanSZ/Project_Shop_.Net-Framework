@@ -1,54 +1,42 @@
-﻿@model IEnumerable<DataLayer.ProductGroups>
-
+﻿
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>گروه ها</h2>
 
 <p>
-    <a class="btn btn-success">افزودن سر گروه جدید</a>
+    <a class="btn btn-success" onclick="Create()">افزودن سر گروه جدید</a>
 </p>
-<table class="table table-bordered">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.GroupTitle)
-        </th>
-        <th>
-            زیر گروه ها
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.GroupTitle)
-        </td>
-        <td>
-            @if (item.ProductGroups1.Any()) 
-            { 
-            <ul>
-                @foreach(var subGroup in item.ProductGroups1)
-                    {
-                        <li>@subGroup.GroupTitle</li>
-                    }
-            </ul>
-            }
-        </td>
-        <td>
-            <a class="btn btn-primary btn-xs">
-                <i class="glyphicon glyphicon-plus"></i>
-            </a>
-            <a class="btn btn-warning btn-xs">
-                <i class="glyphicon glyphicon-edit"></i>
-            </a>
-            <a class="btn btn-danger btn-xs">
-                <i class="glyphicon glyphicon-trash"></i>
-            </a>
-        </td>
-    </tr>
-}
+<div id="listGroups">
+    @Html.Action("ListGroups")
+</div>
 
-</table>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel" style="margin:auto">Modal title</h4>
+            </div>
+            <div class="modal-body" id="myModalBody">
+                ...
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function Create() {
+        $.get("/Admin/ProductGroups/Create",
+            function(result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("افزودن گروه جدید");
+                $("#myModalBody").html(result);
+            });
+    }
+ </script>

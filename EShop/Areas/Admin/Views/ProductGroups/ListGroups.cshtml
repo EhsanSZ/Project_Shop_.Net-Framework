@@ -1,0 +1,45 @@
+﻿@model IEnumerable<DataLayer.ProductGroups>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupTitle)
+        </th>
+        <th>
+            زیر گروه ها
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupTitle)
+            </td>
+            <td>
+                @if (item.ProductGroups1.Any())
+                {
+                    <ul>
+                        @foreach (var subGroup in item.ProductGroups1)
+                        {
+                            <li>@subGroup.GroupTitle</li>
+                        }
+                    </ul>
+                }
+            </td>
+            <td>
+                <a class="btn btn-primary btn-xs ">
+                    <i class="glyphicon glyphicon-plus">افزودن</i>
+                </a>
+                <a class="btn btn-warning btn-xs">
+                    <i class="glyphicon  glyphicon-edit">ویرایش</i>
+                </a>
+                <a class="btn btn-danger btn-xs">
+                    <i class="glyphicon glyphicon-trash">حذف</i>
+                </a>
+            </td>
+        </tr>
+    }
+
+</table>

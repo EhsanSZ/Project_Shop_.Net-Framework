@@ -11,7 +11,7 @@ using System.Web.Security;
 
 namespace EShop.Areas.Admin.Controllers
 {
-    //[Authorize(Roles = "admin")]
+    [Authorize(Roles = "admin")]
     public class UsersController : Controller
     {
         private MyEShopEntities db = new MyEShopEntities();

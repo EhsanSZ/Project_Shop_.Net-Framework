@@ -178,7 +178,5 @@ namespace EShop.Controllers
             }
             return View();
         }
-
-
     }
 }
