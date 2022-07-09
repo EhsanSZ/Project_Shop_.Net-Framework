@@ -39,9 +39,12 @@ namespace EShop.Areas.Admin.Controllers
             return View(productGroups);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            return PartialView();
+            return PartialView(new ProductGroups
+            {
+                ParentID = id 
+            });
         }
 
         [HttpPost]

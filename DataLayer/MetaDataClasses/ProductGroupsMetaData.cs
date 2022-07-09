@@ -30,7 +30,7 @@ namespace DataLayer
 
 //CREATE TABLE ProductGroups
 //(
-//	GroupID INT  NOT NULL,
+//	GroupID INT IDENTITY(1,1) NOT NULL,
 //    GroupTitle NVARCHAR(400) NOT NULL,
 //    ParentID INT NULL
 //)

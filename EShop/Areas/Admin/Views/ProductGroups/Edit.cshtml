@@ -13,6 +13,7 @@
 
 {
     @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.ParentID)
 
     <div class="form-horizontal">
         <hr />

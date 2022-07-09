@@ -31,8 +31,8 @@
 </div>
 
 <script>
-    function Create() {
-        $.get("/Admin/ProductGroups/Create",
+    function Create(parentId) {
+        $.get("/Admin/ProductGroups/Create/"+parentId,
             function (result) {
                 $("#myModal").modal('show');
                 $("#myModalLabel").html("افزودن گروه جدید");

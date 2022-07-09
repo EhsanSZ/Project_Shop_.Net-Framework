@@ -23,20 +23,28 @@
                     <ul>
                         @foreach (var subGroup in item.ProductGroups1)
                         {
-                            <li>@subGroup.GroupTitle</li>
+                            <li id="group_@(subGroup.GroupID)">
+                                @subGroup.GroupTitle
+                                <a class="text-warning" onclick="Edit(@subGroup.GroupID)">
+                                    <i class="glyphicon  glyphicon-edit"></i>
+                                </a>
+                                <a class="text-danger btn-xs" onclick="Delete(@subGroup.GroupID)">
+                                    <i class="glyphicon glyphicon-trash"></i>
+                                </a>
+                            </li>
                         }
                     </ul>
                 }
             </td>
             <td>
-                <a class="btn btn-primary btn-xs ">
-                    <i class="glyphicon glyphicon-plus">افزودن</i>
+                <a class="btn btn-primary btn-xs " onclick="Create(@item.GroupID)">
+                    <i class="glyphicon glyphicon-plus"></i>
                 </a>
                 <a class="btn btn-warning btn-xs" onclick="Edit(@item.GroupID)">
-                    <i class="glyphicon  glyphicon-edit">ویرایش</i>
+                    <i class="glyphicon  glyphicon-edit"></i>
                 </a>
                 <a class="btn btn-danger btn-xs" onclick="Delete(@item.GroupID)">
-                    <i class="glyphicon glyphicon-trash">حذف</i>
+                    <i class="glyphicon glyphicon-trash"></i>
                 </a>
             </td>
         </tr>
