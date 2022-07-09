@@ -33,10 +33,32 @@
 <script>
     function Create() {
         $.get("/Admin/ProductGroups/Create",
-            function(result) {
-                $("#myModal").modal();
+            function (result) {
+                $("#myModal").modal('show');
                 $("#myModalLabel").html("افزودن گروه جدید");
                 $("#myModalBody").html(result);
             });
     }
- </script>
+
+    function Edit(id) {
+        $.get("/Admin/ProductGroups/Edit/" + id,
+            function (result) {
+                $("#myModal").modal();
+                $("#myModalLabel").html("ویرایش گروه");
+                $("#myModalBody").html(result)
+            });
+    }
+
+    function Delete(id) {
+        if (confirm("آیا از حذف مطمعن هستید؟")) {
+            $.get("/Admin/ProductGroups/Delete/" + id,
+                function () {
+                    $("#group_" + id).hide('slow');
+                });
+        }
+    }
+
+        function success() {
+            $("#myModal").modal('hide');
+        }
+</script>

@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="GroupID" />
     </Key>
-    <Property Name="GroupID" Type="int" Nullable="false" />
+    <Property Name="GroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="GroupTitle" Type="nvarchar" MaxLength="400" Nullable="false" />
     <Property Name="ParentID" Type="int" />
   </EntityType>

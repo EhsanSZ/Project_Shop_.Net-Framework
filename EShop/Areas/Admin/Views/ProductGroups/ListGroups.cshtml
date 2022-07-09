@@ -13,7 +13,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr id="group_@(item.GroupID)">
             <td>
                 @Html.DisplayFor(modelItem => item.GroupTitle)
             </td>
@@ -32,10 +32,10 @@
                 <a class="btn btn-primary btn-xs ">
                     <i class="glyphicon glyphicon-plus">افزودن</i>
                 </a>
-                <a class="btn btn-warning btn-xs">
+                <a class="btn btn-warning btn-xs" onclick="Edit(@item.GroupID)">
                     <i class="glyphicon  glyphicon-edit">ویرایش</i>
                 </a>
-                <a class="btn btn-danger btn-xs">
+                <a class="btn btn-danger btn-xs" onclick="Delete(@item.GroupID)">
                     <i class="glyphicon glyphicon-trash">حذف</i>
                 </a>
             </td>

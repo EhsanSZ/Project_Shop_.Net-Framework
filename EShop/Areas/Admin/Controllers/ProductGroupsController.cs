@@ -55,7 +55,6 @@ namespace EShop.Areas.Admin.Controllers
                 return PartialView("ListGroups", db.ProductGroups.Where(g => g.ParentID == null));
             }
 
-            ViewBag.ParentID = new SelectList(db.ProductGroups, "GroupID", "GroupTitle", productGroups.ParentID);
             return View(productGroups);
         }
 
@@ -70,8 +69,7 @@ namespace EShop.Areas.Admin.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.ParentID = new SelectList(db.ProductGroups, "GroupID", "GroupTitle", productGroups.ParentID);
-            return View(productGroups);
+            return PartialView(productGroups);
         }
 
         [HttpPost]
@@ -82,24 +80,26 @@ namespace EShop.Areas.Admin.Controllers
             {
                 db.Entry(productGroups).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return PartialView("ListGroups", db.ProductGroups.Where(g => g.ParentID == null));
             }
-            ViewBag.ParentID = new SelectList(db.ProductGroups, "GroupID", "GroupTitle", productGroups.ParentID);
+
             return View(productGroups);
         }
 
-        public ActionResult Delete(int? id)
+        public void Delete(int? id)
         {
-            if (id == null)
+            var group = db.ProductGroups.Find(id);
+
+            if (group.ProductGroups1.Any())
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                foreach (var subGroup in db.ProductGroups.Where(g=> g.ParentID == id))
+                {
+                    db.ProductGroups.Remove(subGroup);
+                }
             }
-            ProductGroups productGroups = db.ProductGroups.Find(id);
-            if (productGroups == null)
-            {
-                return HttpNotFound();
-            }
-            return View(productGroups);
+
+            db.ProductGroups.Remove(group);
+            db.SaveChanges();
         }
 
         [HttpPost, ActionName("Delete")]
