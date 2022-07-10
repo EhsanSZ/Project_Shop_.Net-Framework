@@ -5,11 +5,19 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="d6a3eac5a34e4ef2a3e2b3a931cc78f3" Name="Diagram1">
-        <EntityTypeShape EntityType="MyEShopModel.Roles" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="MyEShopModel.Users" Width="1.5" PointX="3" PointY="3" />
+        <EntityTypeShape EntityType="MyEShopModel.Roles" Width="1.5" PointX="0.625" PointY="0.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MyEShopModel.Users" Width="1.5" PointX="0.625" PointY="2.75" />
         <AssociationConnector Association="MyEShopModel.FK_Users_Roles" />
-        <EntityTypeShape EntityType="MyEShopModel.ProductGroups" Width="1.5" PointX="4.875" PointY="0.75" />
+        <EntityTypeShape EntityType="MyEShopModel.ProductGroups" Width="1.5" PointX="8.25" PointY="0.5" />
         <AssociationConnector Association="MyEShopModel.FK_ProductGroups" />
+        <EntityTypeShape EntityType="MyEShopModel.Product_Galleries" Width="1.5" PointX="6.375" PointY="3.625" />
+        <EntityTypeShape EntityType="MyEShopModel.Product_Selected_Groups" Width="1.5" PointX="6.375" PointY="0.5" />
+        <EntityTypeShape EntityType="MyEShopModel.Product_Tags" Width="1.5" PointX="8.125" PointY="3" />
+        <EntityTypeShape EntityType="MyEShopModel.Products" Width="1.5" PointX="4.5" PointY="0.625" />
+        <AssociationConnector Association="MyEShopModel.FK_Product_Galleries_Products" />
+        <AssociationConnector Association="MyEShopModel.FK_Prodct_Selected_Groups_Products" />
+        <AssociationConnector Association="MyEShopModel.FK_Product_Selected_Groups_ProductGroups" />
+        <AssociationConnector Association="MyEShopModel.FK_Product__Tags_Products" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
