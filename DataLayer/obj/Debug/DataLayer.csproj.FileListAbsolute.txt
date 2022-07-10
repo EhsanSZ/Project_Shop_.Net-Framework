@@ -10,3 +10,14 @@ D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\obj\Debug\DataLayer.csproj.CoreCompil
 D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
 D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\obj\Debug\DataLayer.dll
 D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\obj\Debug\DataLayer.pdb
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\System.Web.Mvc.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\System.Web.Razor.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\System.Web.WebPages.Razor.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\System.Web.WebPages.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\Microsoft.Web.Infrastructure.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\System.Web.WebPages.Deployment.dll
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\System.Web.Mvc.xml
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\System.Web.Razor.xml
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\System.Web.WebPages.Razor.xml
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\System.Web.WebPages.xml
+D:\MyProje\ASP.Net\ShopMvc\EShop\DataLayer\bin\Debug\System.Web.WebPages.Deployment.xml

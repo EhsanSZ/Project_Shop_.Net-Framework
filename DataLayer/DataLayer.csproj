@@ -42,6 +42,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>E:\C#\ASP.NET\ASP.NET MVC\GIS\WebGIS_Course_S5\S5-MyWebGIS\MyWebGIS\bin\System.Web.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
