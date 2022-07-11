@@ -1281,6 +1281,7 @@
     <Content Include="Images\ProductImages\03469a0f-5848-4e56-b816-3b59d9e316a6.jpg" />
     <Content Include="Images\ProductImages\images.jpg" />
     <Content Include="Images\ProductImages\Thumb\03469a0f-5848-4e56-b816-3b59d9e316a6.jpg" />
+    <Content Include="Images\ProductImages\Thumb\images.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -1440,6 +1441,7 @@
     <Compile Include="Utilities\ImageResizer.cs" />
     <Compile Include="Utilities\MyEShopRoleProvider.cs" />
     <Compile Include="Utilities\PartialToStringClass.cs" />
+    <Compile Include="Utilities\PersianCulture.cs" />
     <Compile Include="Utilities\SendEmail.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -7,6 +7,7 @@ using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
 using System.Web.Http;
+using System.Threading;
 
 namespace EShop
 {
@@ -22,6 +23,13 @@ namespace EShop
 
             GlobalConfiguration.Configure(WebApiConfig.Register);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+
+        protected void Application_BeginRequest(object sender, EventArgs e)
+        {
+            var persianCulture = new PersianCulture();
+            Thread.CurrentThread.CurrentCulture = persianCulture;
+            Thread.CurrentThread.CurrentUICulture = persianCulture;
         }
     }
 }
