@@ -74,5 +74,23 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Features">
+      <EntityTypeMapping TypeName="MyEShopModel.Features">
+        <MappingFragment StoreEntitySet="Features">
+          <ScalarProperty Name="FeatureTitle" ColumnName="FeatureTitle" />
+          <ScalarProperty Name="FeatureID" ColumnName="FeatureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_Features">
+      <EntityTypeMapping TypeName="MyEShopModel.Product_Features">
+        <MappingFragment StoreEntitySet="Product_Features">
+          <ScalarProperty Name="Value" ColumnName="Value" />
+          <ScalarProperty Name="FeatureID" ColumnName="FeatureID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="PF_ID" ColumnName="PF_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -18,6 +18,10 @@
         <AssociationConnector Association="MyEShopModel.FK_Prodct_Selected_Groups_Products" />
         <AssociationConnector Association="MyEShopModel.FK_Product_Selected_Groups_ProductGroups" />
         <AssociationConnector Association="MyEShopModel.FK_Product__Tags_Products" />
+        <EntityTypeShape EntityType="MyEShopModel.Features" Width="1.5" PointX="8.25" PointY="5.125" />
+        <EntityTypeShape EntityType="MyEShopModel.Product_Features" Width="1.5" PointX="4.625" PointY="4.125" />
+        <AssociationConnector Association="MyEShopModel.FK_ProductFeatures_Features" />
+        <AssociationConnector Association="MyEShopModel.FK_ProductFeatures_Products" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

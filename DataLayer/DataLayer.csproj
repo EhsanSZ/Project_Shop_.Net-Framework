@@ -53,6 +53,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MetaDataClasses\FeaturesMetaData.cs" />
     <Compile Include="GenericRepository\GenericRepository.cs" />
     <Compile Include="GenericRepository\IEntity.cs" />
     <Compile Include="MetaDataClasses\RolesMetaData.cs" />
@@ -79,6 +83,10 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="MetaDataClasses\ProductsMetaData.cs" />
+    <Compile Include="Product_Features.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MetaDataClasses\Product_FeaturesMetaData.cs" />
     <Compile Include="Product_Galleries.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
