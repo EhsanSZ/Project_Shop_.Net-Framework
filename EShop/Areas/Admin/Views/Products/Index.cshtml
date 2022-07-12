@@ -27,27 +27,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-<tr>
-    <td>
-        <img class="thumbnail" src="~/Images/ProductImages/Thumb/@item.ImageName" />
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Title)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.Price)
-    </td>
-    <td>
-        @item.CreateDate.ToString("dddd, dd MMMM yyyy")
-    </td>
-    <td>
-        <a class="btn btn-default btn-xs" href="#">ویژگی های محصول</a>
-        <a class="btn btn-info btn-xs" href="#">گالری محصول</a>
-        <a class="btn btn-warning btn-xs" href="@Url.Action("Edit",new {id =item.ProductID})">ویرایش محصول</a>
-        <a class="btn btn-danger btn-xs" href="@Url.Action("Delete",new {id =item.ProductID})">حذف محصول</a>
-    </td>
-</tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img class="thumbnail" src="~/Images/ProductImages/Thumb/@item.ImageName" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @item.CreateDate.ToString("dddd, dd MMMM yyyy")
+            </td>
+            <td>
+                <a class="btn btn-default btn-xs" href="#">ویژگی های محصول</a>
+                <a class="btn btn-info btn-xs" href="@Url.Action("Gallery",new {id =item.ProductID})">گالری محصول</a>
+                <a class="btn btn-warning btn-xs" href="@Url.Action("Edit",new {id =item.ProductID})">ویرایش محصول</a>
+                <a class="btn btn-danger btn-xs" href="@Url.Action("Delete",new {id =item.ProductID})">حذف محصول</a>
+            </td>
+        </tr>
+    }
 
 </table>

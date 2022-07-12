@@ -99,6 +99,7 @@
     <Property Name="ProductID" Type="Int32" Nullable="false" />
     <Property Name="ImageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="Products" Relationship="MyEShopModel.FK_Product_Galleries_Products" FromRole="Product_Galleries" ToRole="Products" />
+    <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
   </EntityType>
   <EntityType Name="Product_Selected_Groups">
     <Key>

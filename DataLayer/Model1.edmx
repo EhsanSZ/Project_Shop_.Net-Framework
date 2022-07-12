@@ -12,6 +12,7 @@
           <Property Name="GalleryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ProductID" Type="int" Nullable="false" />
           <Property Name="ImageName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Product_Selected_Groups">
           <Key>
@@ -278,6 +279,7 @@
           <Property Name="ProductID" Type="Int32" Nullable="false" />
           <Property Name="ImageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Products" Relationship="MyEShopModel.FK_Product_Galleries_Products" FromRole="Product_Galleries" ToRole="Products" />
+          <Property Name="Title" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Product_Selected_Groups">
           <Key>
@@ -402,6 +404,7 @@
           <EntitySetMapping Name="Product_Galleries">
             <EntityTypeMapping TypeName="MyEShopModel.Product_Galleries">
               <MappingFragment StoreEntitySet="Product_Galleries">
+                <ScalarProperty Name="Title" ColumnName="Title" />
                 <ScalarProperty Name="ImageName" ColumnName="ImageName" />
                 <ScalarProperty Name="ProductID" ColumnName="ProductID" />
                 <ScalarProperty Name="GalleryID" ColumnName="GalleryID" />

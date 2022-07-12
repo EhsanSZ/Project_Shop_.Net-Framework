@@ -7,6 +7,7 @@
     <Property Name="GalleryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProductID" Type="int" Nullable="false" />
     <Property Name="ImageName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="150" />
   </EntityType>
   <EntityType Name="Product_Selected_Groups">
     <Key>
