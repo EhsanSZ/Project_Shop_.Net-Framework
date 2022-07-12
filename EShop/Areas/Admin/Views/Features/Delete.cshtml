@@ -1,0 +1,31 @@
+﻿@model DataLayer.Features
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>حذف</h2>
+
+<h3>آيا از حذف اين ويژگي مطمعن هستيد؟</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FeatureTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FeatureTitle)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="حذف" class="btn btn-danger" /> |
+            @Html.ActionLink("بازكشت به ليست", "Index")
+        </div>
+    }
+</div>

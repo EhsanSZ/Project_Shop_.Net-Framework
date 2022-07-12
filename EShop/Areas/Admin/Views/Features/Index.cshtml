@@ -1,0 +1,37 @@
+﻿@model IEnumerable<DataLayer.Features>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>لیست ویژگی ها</h2>
+
+<p>
+    <a href="@Url.Action("Create")" class="btn btn-success">افزودن ویژگی جدید</a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FeatureTitle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FeatureTitle)
+        </td>
+        <td>
+            <a class="btn btn-warning btn-sm" href="@Url.Action("Edit",new {id = item.FeatureID})">
+                <i class="glyphicon glyphicon-edit"></i>
+            </a>
+            <a class="btn btn-danger btn-sm " href="@Url.Action("Delete",new {id = item.FeatureID})">
+                <i class="glyphicon glyphicon-trash"></i>
+            </a>
+        </td>
+    </tr>
+}
+
+</table>
