@@ -201,6 +201,8 @@ namespace EShop.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
+        #region Galleries
+
         public ActionResult Gallery(int id)
         {
             ViewBag.Pictures = db.Product_Galleries.Where(p => p.ProductID == id).ToList();
@@ -245,6 +247,43 @@ namespace EShop.Areas.Admin.Controllers
 
             return RedirectToAction("Gallery", new { id = pic.ProductID });
         }
+
+        #endregion
+
+        #region Featurs
+
+        public ActionResult ProductFeaturs(int id)
+        {
+            ViewBag.Featurs = db.Product_Features.Where(f => f.ProductID == id).ToList();
+            ViewBag.FeatureID = new SelectList(db.Features.ToList(), "FeatureID", "FeatureTitle");
+            return View(new Product_Features()
+            {
+                ProductID = id
+            });
+        }
+
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ProductFeaturs(Product_Features product_Features)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Product_Features.Add(product_Features);
+                db.SaveChanges();
+            }
+            return RedirectToAction("ProductFeaturs", new { id = product_Features.ProductID });
+        }
+
+        public void DeleteFeaturs (int id)
+        {
+            var feature = db.Product_Features.Find(id);
+            db.Product_Features.Remove(feature);
+            db.SaveChanges();
+        }
+
+
+        #endregion
 
         protected override void Dispose(bool disposing)
         {
