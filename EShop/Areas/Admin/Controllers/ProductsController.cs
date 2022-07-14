@@ -155,13 +155,16 @@ namespace EShop.Areas.Admin.Controllers
                 db.Product_Selected_Groups.Where(g => g.ProductID == products.ProductID).ToList()
                     .ForEach(g => db.Product_Selected_Groups.Remove(g));
 
-                foreach (var selectGroup in selectedGroups)
+                if (selectedGroups != null && selectedGroups.Any())
                 {
-                    db.Product_Selected_Groups.Add(new Product_Selected_Groups()
+                    foreach (var selectGroup in selectedGroups)
                     {
-                        ProductID = products.ProductID,
-                        GroupID = selectGroup
-                    });
+                        db.Product_Selected_Groups.Add(new Product_Selected_Groups()
+                        {
+                            ProductID = products.ProductID,
+                            GroupID = selectGroup
+                        });
+                    }
                 }
 
 
